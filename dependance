@@ -1,0 +1,4 @@
+sudo apt install ffmpeg
+sudo apt install fonts-font-awesome
+sudo apt install mpd
+sudo apt install ncmpcpp
