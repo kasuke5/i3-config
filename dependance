@@ -15,4 +15,5 @@ sudo apt install numlockx
 sudo apt install feh
 sudo apt install neofetch
 sudo apt install thunar
-sudo apt instal python
+sudo apt install python
+sudo apt install lxappaerance

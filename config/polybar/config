@@ -8,13 +8,14 @@
 ;=====================================================
 
 [colors]
-black = #222
-background = #222
-background-alt = #444
-foreground = #dfdfdf
-foreground-alt = #55
-primary = #ffb52a
-secondary = #e60053
+;background = ${xrdb:color0:#222}
+background = #73000000
+background-alt = #4c28aa
+;foreground = ${xrdb:color7:#222}
+foreground = #a69bdc
+foreground-alt = #8f50a8
+primary = #8a84dc
+secondary = #6c71dc
 alert = #bd2c40
 
 [global/wm]
@@ -25,17 +26,20 @@ margin-bottom = 5
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 27
-offset-x = 0
-offset-y = 0
+;offset-x = 0
+;offset-y = 0
+radius = 6.0
+fixed-center = false
 
 ;background = ${xrdb:color9}
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-overline-size = 2
-overline-color = #f00
-underline-size = 2
-underline-color = #00f
+line-size = 3
+line-color = #f00
+
+border-size = 4
+border-color = #00000000
 
 border-bottom-size = 2
 border-bottom-color = #333
@@ -226,7 +230,7 @@ type = internal/cpu
 interval = 1
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
+format-underline = #6368dc
 label = CPU %percentage-cores%
 
 ramp-coreload-0 = ▁
@@ -243,7 +247,7 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
+format-underline = #8f89dc
 label = RAM %percentage_used%%
 
 [module/wlan]
@@ -251,18 +255,20 @@ type      = internal/network
 interface = wlp110s0
 interval  = 1.0
 
-format-connected-background = ${colors.black}
-format-connected-prefix = 
-format-connected-prefix-foreground = ${colors.black}
-format-connected-prefix-background = ${colors.background}
-format-connected-suffix            = 
-format-connected-suffix-foreground = ${colors.background}
-format-connected-suffix-background = ${colors.black}
+;format-connected-background = ${colors.black}
+;format-connected-prefix = 
+;format-connected-prefix-foreground = ${colors.black}
+;format-connected-prefix-background = ${colors.background}
+;format-connected-suffix            = 
+;format-connected-suffix-foreground = ${colors.background}
+;format-connected-suffix-background = ${colors.black}
+format-connected = <label-connected>
+format-connected-underline = #9f78e1
 
 label-connected            =  %signal:3%% %essid% %local_ip%    %downspeed:8%     %upspeed:8%
-label-connected-foreground = ${colors.foreground}
-label-connected-background = ${colors.black}
-label-connected-padding    = 1
+;label-connected-foreground = ${colors.foreground}
+;label-connected-background = ${colors.black}
+;label-connected-padding    = 1
 
 format-disconnected =
 
@@ -272,18 +278,19 @@ type = internal/network
 interface = enp109s0f1
 interval = 1.0
 
-format-connected-background = ${colors.black}
-format-connected-prefix = 
-format-connected-prefix-foreground = ${colors.black}
-format-connected-prefix-background = ${colors.background}
-format-connected-suffix            = 
-format-connected-suffix-foreground = ${colors.background}
-format-connected-suffix-background = ${colors.black}
+;format-connected-background = ${colors.black}
+;format-connected-prefix = 
+;format-connected-prefix-foreground = ${colors.foreground-alt}
+;format-connected-prefix-background = ${colors.background}
+;format-connected-suffix            = 
+;format-connected-suffix-foreground = ${colors.background}
+;format-connected-suffix-background = ${colors.black}
 
 label-connected            =  %local_ip%  %downspeed:8%     %upspeed:8%
-label-connected-foreground = ${colors.foreground}
-label-connected-background = ${colors.black}
-label-connected-padding    = 1
+;label-connected-foreground = ${colors.foreground}
+;label-connected-background = ${colors.black}
+;label-connected-padding    = 1
+format-connected-underline = #9f78e1
 
 format-disconnected =
 
@@ -299,7 +306,7 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
+format-underline = #cfa6d9
 
 label = %time% %date% 
 
@@ -315,11 +322,11 @@ format-muted-foreground = ${colors.foreground-alt}
 label-muted = 🔇 muted
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-0 = #646adc
+bar-volume-foreground-1 = #646adc
+bar-volume-foreground-2 = #646adc
+bar-volume-foreground-3 = #646adc
+bar-volume-foreground-4 = #646adc
 bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
@@ -343,7 +350,7 @@ label-discharging = Discharging %percentage%% %time%
 label-full = 
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = #f96df9
 
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
@@ -369,7 +376,7 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #f50a4d
+format-underline = #d183d3
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
@@ -381,11 +388,11 @@ ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
-# [module/power-menu]
-# type = custom/text
-# content = 
-# content-foreground = ${colors.highlight}
-# click-left = /usr/local/bin/power_menu.sh
+; [module/power-menu]
+; type = custom/text
+; content = 
+; content-foreground = ${colors.highlight}
+; click-left = /usr/local/bin/power_menu.sh
 [module/powermenu]
 type = custom/menu
 
