@@ -13,7 +13,10 @@ sudo apt install python3
 sudo apt install mpv
 sudo apt install numlockx
 sudo apt install feh
+sudo add-apt-repository ppa:dawidd0811/neofetch
+sudo apt update
 sudo apt install neofetch
 sudo apt install thunar
 sudo apt install python
 sudo apt install lxappaerance
+sudo apt install compton
