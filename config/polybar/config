@@ -23,7 +23,7 @@ margin-top = 5
 margin-bottom = 5
 
 [bar/example]
-;monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:eDP-1-1}
 width = 100%
 height = 27
 ;offset-x = 0
@@ -50,12 +50,12 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = fixed:pixelsize=10
-font-1 = FontAwesome:size=10
+font-1 = FontAwesome:size=10;0
 font-2 = siji:pixelsize=10
 
-modules-left = bspwm i3 xwindow
-modules-center = mpd
-modules-right = volume xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-left = bspwm i3 
+modules-center = xwindow mpd
+modules-right = ping volume xkeyboard memory cpu wlan eth battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -76,7 +76,7 @@ tray-padding = 2
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title%
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -146,6 +146,8 @@ label-visible = %index%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
+
+ws-icon-8 = 9;
 
 [module/mpd]
 type = internal/mpd
@@ -419,6 +421,7 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+click-left = /home/ubuntu/shutdown.sh
 
 [module/current-song]
 type = custom/script
@@ -436,3 +439,8 @@ content-foreground = ${colors.highlight}
 click-left = /usr/local/bin/power_menu.sh
 
 ; vim:ft=dosini
+[module/ping]
+type = custom/script
+exec = /home/ubuntu/ping.sh
+tail = true
+content = 

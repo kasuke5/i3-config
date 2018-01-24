@@ -97,7 +97,7 @@ bindsym $mod+q focus parent
 # network manager (always runs)
 exec --no-startup-id nm-applet 
 
-# Start Thunderbird and Pidgin with 10 minutes delay
+# Start Thunderbird with 2 minutes delay
 exec --no-startup-id "sh -c 'sleep 2m; exec thunderbird'"
 
 #Namen fuer Workspaces
@@ -213,3 +213,6 @@ client.urgent #ff5757 #404552 #ffffff #555757 #404552
 client.background #404552
 
 for_window [class =".*"] title_format "  %title"
+
+# Capture d'ecran avec flameshot
+bindsym F12 exec flameshot gui
