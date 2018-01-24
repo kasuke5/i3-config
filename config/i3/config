@@ -215,4 +215,4 @@ client.background #404552
 for_window [class =".*"] title_format "  %title"
 
 # Capture d'ecran avec flameshot
-bindsym F12 exec flameshot gui
+bindsym Print exec flameshot gui
